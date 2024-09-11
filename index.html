@@ -3,95 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Project 09</title>
+    <title>Cash Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
     <div class="container">
         <h1>Cash Calculator</h1>
 
         <div class="row">
-            <img src="bd note img/tk1000n1o.jpg">
-            <input type="number" id="et1000" class="cash-input" placeholder="Enter no. of Tk.1000 note">
+            <img src="bd note img/tk1000n1o.jpg" alt="Tk.1000 note">
+            <input type="number" id="et1000" class="cash-input" placeholder="Enter no. of Tk.1000 note" min="0">
             <span id="txt1000" class="cash-text">0</span>
         </div>
         <div class="row">
-            <img src="bd note img/tk500no6font.jpg">
-            <input type="number" id="et500" class="cash-input" placeholder="Enter no. of Tk.500 note">
+            <img src="bd note img/tk500no6font.jpg" alt="Tk.500 note">
+            <input type="number" id="et500" class="cash-input" placeholder="Enter no. of Tk.500 note" min="0">
             <span id="txt500" class="cash-text">0</span>
         </div>
         <div class="row">
-            <img src="bd note img/tk200com_f.jpg">
-            <input type="number" id="et200" class="cash-input" placeholder="Enter no. of Tk.200 note">
+            <img src="bd note img/tk200com_f.jpg" alt="Tk.200 note">
+            <input type="number" id="et200" class="cash-input" placeholder="Enter no. of Tk.200 note" min="0">
             <span id="txt200" class="cash-text">0</span>
         </div>
         <div class="row">
-            <img src="bd note img/tk100no8f.jpg">
-            <input type="number" id="et100" class="cash-input" placeholder="Enter no. of Tk.100 note">
+            <img src="bd note img/tk100no8f.jpg" alt="Tk.100 note">
+            <input type="number" id="et100" class="cash-input" placeholder="Enter no. of Tk.100 note" min="0">
             <span id="txt100" class="cash-text">0</span>
         </div>
         <div class="row">
-            <img src="bd note img/tk50o7o.jpg">
-            <input type="number" id="et50" class="cash-input" placeholder="Enter no. of Tk.50 note">
+            <img src="bd note img/tk50o7o.jpg" alt="Tk.50 note">
+            <input type="number" id="et50" class="cash-input" placeholder="Enter no. of Tk.50 note" min="0">
             <span id="txt50" class="cash-text">0</span>
         </div>
         <div class="row">
-            <img src="bd note img/tk20o_2.jpg">
-            <input type="number" id="et20" class="cash-input" placeholder="Enter no. of Tk.20 note">
+            <img src="bd note img/tk20o_2.jpg" alt="Tk.20 note">
+            <input type="number" id="et20" class="cash-input" placeholder="Enter no. of Tk.20 note" min="0">
             <span id="txt20" class="cash-text">0</span>
         </div>
         <div class="row">
-            <img src="bd note img/tk10.jpeg">
-            <input type="number" id="et10" class="cash-input" placeholder="Enter no. of Tk.10 note">
+            <img src="bd note img/tk10.jpeg" alt="Tk.10 note">
+            <input type="number" id="et10" class="cash-input" placeholder="Enter no. of Tk.10 note" min="0">
             <span id="txt10" class="cash-text">0</span>
         </div>
         <div class="row">
-            <img src="bd note img/tk5o5o.jpg">
-            <input type="number" id="et5" class="cash-input" placeholder="Enter no. of Tk.5 note">
+            <img src="bd note img/tk5o5o.jpg" alt="Tk.5 note">
+            <input type="number" id="et5" class="cash-input" placeholder="Enter no. of Tk.5 note" min="0">
             <span id="txt5" class="cash-text">0</span>
         </div>
         <div class="row">
-            <img src="bd note img/tk2o_1.jpg">
-            <input type="number" id="et2" class="cash-input" placeholder="Enter no. of Tk.2 note">
+            <img src="bd note img/tk2o_1.jpg" alt="Tk.2 note">
+            <input type="number" id="et2" class="cash-input" placeholder="Enter no. of Tk.2 note" min="0">
             <span id="txt2" class="cash-text">0</span>
         </div>
         <div class="row">
-            <img src="bd note img/tk1.jpeg">
-            <input type="number" id="et1" class="cash-input" placeholder="Enter no. of Tk.1 note">
+            <img src="bd note img/tk1.jpeg" alt="Tk.1 note">
+            <input type="number" id="et1" class="cash-input" placeholder="Enter no. of Tk.1 note" min="0">
             <span id="txt1" class="cash-text">0</span>
         </div>
         <div class="row">
             <button id="btnReset">Reset</button>
         </div>
         <div class="row result-part">
-            <span id="txtFinalCash">Total Cash:0</span>
+            <span id="txtFinalCash">Total Cash: 0</span>
             <span id="txtFinalCashInWords">Zero</span>
         </div>
+
+        <!-- Virtual Keypad -->
         <div class="keypad" id="keypad">
             <div class="key-row">
-              <button class="key" data-value="1">1</button>
-              <button class="key" data-value="2">2</button>
-              <button class="key" data-value="3">3</button>
+                <button class="key" data-value="1">1</button>
+                <button class="key" data-value="2">2</button>
+                <button class="key" data-value="3">3</button>
             </div>
             <div class="key-row">
-              <button class="key" data-value="4">4</button>
-              <button class="key" data-value="5">5</button>
-              <button class="key" data-value="6">6</button>
+                <button class="key" data-value="4">4</button>
+                <button class="key" data-value="5">5</button>
+                <button class="key" data-value="6">6</button>
             </div>
             <div class="key-row">
-              <button class="key" data-value="7">7</button>
-              <button class="key" data-value="8">8</button>
-              <button class="key" data-value="9">9</button>
+                <button class="key" data-value="7">7</button>
+                <button class="key" data-value="8">8"></button>
+                <button class="key" data-value="9">9</button>
             </div>
             <div class="key-row">
-              <button class="key" data-value="0">0</button>
-              <button class="key" id="clearKey">Clear</button>
+                <button class="key" data-value="0">0</button>
+                <button class="key" id="clearKey">Clear</button>
             </div>
-          </div>
-          
+        </div>
     </div>
-
 
     <script src="script.js"></script>
 </body>
