@@ -4,7 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const txtFinalCash = document.getElementById('txtFinalCash');
     const txtFinalCashInWords = document.getElementById('txtFinalCashInWords');
     const btnReset = document.getElementById('btnReset');
+    const keypad = document.getElementById('keypad');
+    let activeInput = null;
 
+    // Cash input field listeners
     cashInputs.forEach((input, index) => {
         input.addEventListener('input', () => {
             const value = parseInt(input.value, 10);
@@ -16,8 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Reset button functionality
     btnReset.addEventListener('click', clearData);
 
+    // Cash calculation for each denomination
     function cashCalculate(index) {
         const denominations = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
         const rowValue = cashInputs[index].value * denominations[index];
@@ -25,15 +30,23 @@ document.addEventListener('DOMContentLoaded', () => {
         totalCash();
     }
 
+    // Calculate total cash and update in both numeric and words format
     function totalCash() {
         let totalCashValue = 0;
         cashTexts.forEach(text => {
             totalCashValue += parseInt(text.textContent);
         });
+
+        // Update total cash values
         txtFinalCash.textContent = 'Total Cash: ' + totalCashValue;
         txtFinalCashInWords.textContent = `Total Cash In Words: ${convertToWords(totalCashValue)}`;
+
+        // Trigger transition effect
+        addTransitionEffect(txtFinalCash);
+        addTransitionEffect(txtFinalCashInWords);
     }
 
+    // Clear all data
     function clearData() {
         cashInputs.forEach(input => {
             input.value = '';
@@ -42,8 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
             text.textContent = '0';
         });
         totalCash();
+
+        // Hide keypad and reset active input
+        keypad.classList.add('hidden');
+        activeInput = null;
     }
 
+    // Convert total cash number into words
     function convertToWords(number) {
         const units = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
         const teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
@@ -90,5 +108,51 @@ document.addEventListener('DOMContentLoaded', () => {
     
         return words.trim();
     }
-    
+
+    // Transition effect for smooth total updates
+    function addTransitionEffect(element) {
+        element.classList.add('total-update');  // Add animation class
+        setTimeout(() => {
+            element.classList.remove('total-update');  // Remove class after animation
+        }, 300);  // Match the transition timing (0.3s)
+    }
+
+    // Open keypad when clicking on an input field
+    cashInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            activeInput = input;
+            keypad.classList.remove('hidden');
+        });
+    });
+
+    // Hide keypad when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.keypad') && !event.target.classList.contains('cash-input')) {
+            keypad.classList.add('hidden');
+        }
+    });
+
+    // Handle keypad button clicks with value validation
+    document.querySelectorAll('.key').forEach(key => {
+        key.addEventListener('click', () => {
+            if (activeInput) {
+                const value = key.getAttribute('data-value');
+                if (value !== null) {
+                    const newValue = activeInput.value + value;
+                    if (!isNaN(parseInt(newValue)) && parseInt(newValue) >= 0) {  // Validate numeric value
+                        activeInput.value = newValue;
+                        cashCalculate(Array.from(cashInputs).indexOf(activeInput));  // Update calculation in real-time
+                    }
+                }
+            }
+        });
+    });
+
+    // Clear button functionality for the keypad
+    document.getElementById('clearKey').addEventListener('click', () => {
+        if (activeInput) {
+            activeInput.value = '';
+            cashCalculate(Array.from(cashInputs).indexOf(activeInput));
+        }
+    });
 });
