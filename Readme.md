@@ -1,10 +1,7 @@
-Here is a clean and structured **README** file for your cash calculator project.
-
----
 
 # 💰 Cash Calculator
 
-A simple **Cash Calculator** built using **HTML**, **CSS**, and **JavaScript**. This tool allows users to input the number of currency notes (Tk. 1000, Tk. 500, etc.), calculate the total cash, and display the total in both numerical and text format.
+A simple **Cash Calculator** built using **HTML**, **CSS**, and **JavaScript**. This tool allows users to input the number of currency notes, calculate the total cash, and display the total in both numerical and text format.
 
 ## 🚀 Features
 
