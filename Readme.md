@@ -29,7 +29,7 @@ A simple **Cash Calculator** built using **HTML**, **CSS**, and **JavaScript**. 
 
 ## 📸 Screenshot
 
-![Cash Calculator](./bd%20note%20img/Screenshot_8-12-2024_212026_127.0.0.1.jpeg)
+![Cash Calculator](./bd%20note%20img/cashcalculator.jpeg)
 
 ## 🔧 How to Use
 
